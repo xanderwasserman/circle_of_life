@@ -10,7 +10,7 @@ high_score = 0
 # Creating a window screen
 wn = turtle.Screen()
 wn.title("Circle of Life Game")
-wn.bgcolor("black")
+wn.bgcolor("light blue")
 
 # the width and height can be put as user's choice
 wn.setup(width=600, height=600)
@@ -107,6 +107,12 @@ while True:
 		pen.clear()
 		pen.write("Score : {} High Score : {} ".format(score, high_score), align="center", font=("candara", 24, "bold"))
 
+		pen.clear()
+		pen.write("END OF CIRCLE OF LIFE", align="center", font=("candara", 24, "bold"))
+		time.sleep(2)
+		pen.clear()
+		pen.write("Score : {} High Score : {} ".format(score, high_score), align="center", font=("candara", 24, "bold"))
+
 	if head.distance(food) < 20:
 		x = random.randint(-270, 270)
 		y = random.randint(-270, 270)
@@ -150,8 +156,12 @@ while True:
 			score = 0
 			delay = 0.1
 			pen.clear()
-			pen.write("Score : {} High Score : {} ".format(
-				score, high_score), align="center", font=("candara", 24, "bold"))
+			pen.write("Score : {} High Score : {} ".format(score, high_score), align="center", font=("candara", 24, "bold"))
+			pen.clear()
+			pen.write("END OF CIRCLE OF LIFE", align="center", font=("candara", 24, "bold"))
+			time.sleep(2)
+			pen.clear()
+			pen.write("Score : {} High Score : {} ".format(score, high_score), align="center", font=("candara", 24, "bold"))
 	time.sleep(delay)
 
 wn.mainloop()
