@@ -93,6 +93,7 @@ segments = []
 # Main Gameplay
 while True:
 	wn.update()
+	# Check for collision with borders
 	if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
 		time.sleep(1)
 		head.goto(0, 0)
@@ -113,6 +114,7 @@ while True:
 		pen.clear()
 		pen.write("Score : {} High Score : {} ".format(score, high_score), align="center", font=("candara", 24, "bold"))
 
+	# Check for collision with food (Eating)
 	if head.distance(food) < 20:
 		x = random.randint(-270, 270)
 		y = random.randint(-270, 270)
@@ -132,6 +134,7 @@ while True:
 		pen.clear()
 		pen.write("Score : {} High Score : {} ".format(
 			score, high_score), align="center", font=("candara", 24, "bold"))
+
 	# Checking for head collisions with body segments
 	for index in range(len(segments)-1, 0, -1):
 		x = segments[index-1].xcor()
@@ -151,7 +154,7 @@ while True:
 			shapes = random.choice(['square', 'circle'])
 			for segment in segments:
 				segment.goto(1000, 1000)
-			segment.clear()
+			segments.clear()
 
 			score = 0
 			delay = 0.1
